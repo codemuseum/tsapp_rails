@@ -1,0 +1,86 @@
+h1. TSApp-Rails ThriveSmart App Base for Ruby on Rails
+
+A work in progress, planned for early '09 release.  
+Please email developers@thrivesmart.com if you're interested in learning more!
+
+
+h2. Installation
+
+There are a couple ways to install tsapp-rails.  One way you might enjoy doing it is via git submodule.
+
+
+h3. Installing tsapp-rails as a submodule
+
+Submodules allow foreign repositories to be embedded within a dedicated subdirectory of the source tree, *always pointed at a particular commit*.  This makes it easy to keep your project's ts-app plugin up-to-date.
+
+
+h4. Installing the plugin as a submodule
+
+There are simply 3 steps to installing this plugin as a git submodule, if you've never installed tsapp-rails as a submodule of your project's repository before.
+
+<pre>
+git submodule add git://github.com/moorage/tsapp-rails.git vendor/plugins/tsapp
+git submodule init
+git submodule update
+</pre>
+
+
+h4. Cloning your project with ts-app as a submodule
+
+When you clone your base app, submodules aren't initted automatically. Instead, once you clone, you'll still have to run:
+
+<pre>
+git submodule init
+git submodule update
+</pre>
+
+
+h4. Updating your submodule to the latest release
+
+As changes are published to the tsapp-rails repository (git://github.com/moorage/tsapp-rails.git), you'll be able to fetch them quite easily, by going into your submodule directory and running the following commands.
+
+<pre>
+cd vendor/plugins/tsapp
+git remote update
+git merge origin/master
+</pre>
+
+
+h2. Usage
+
+First, install it as a plugin of your project (if you haven't done so already).
+
+For most people, the first thing you'll want to do is run the generator, which gets you up and running quickly with the necessary controllers, models, views, and tables.  
+
+<pre>
+  script/generate tsapp PageObject assethost [column1 column2 etc]
+</pre>
+
+Example:
+
+<pre>
+  script/generate tsapp PageObject http://localhost:3003 message:string
+</pre>
+
+This will do the following, which are all necessary to have a functional ThriveSmart Application.
+
+* Generate PageObjects Controller
+* Generate PageObject Model
+* Generate PageObject Migration with optional columns
+* Generate PageObject Show & Edit View
+* Generate PageObject Empty Layout
+* Generate PageObject (custom) Resourceful Route
+* Generate Asset Hosts in @production.rb@ and @development.rb@ [necessary for correct asset linkage]
+
+h3. Data Controller
+
+For many of your apps, you'll want to make the data represented in the page object available to other apps via API.  To create the DataController scaffolding, simply run:
+
+<pre>
+  script/generate tsdata Data
+</pre>
+
+This will generate the DataController, which ThriveSmart Core will call with requested Page Object URNs.
+
+
+Copyright (c) 2008 ThriveSmart, released under the MIT license
