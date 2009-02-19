@@ -1,5 +1,5 @@
 require 'action_view'
-require File.join( File.dirname(__FILE__), "lib", 'tsapp')
+require File.join(File.dirname(__FILE__), 'lib', 'tsapp')
 
 # FIXME - why doesn't the first line work, when the second, does?
 # ActionView::Helpers::FormHelper.send(:include, ThriveSmart::Helpers::FormHelper)
