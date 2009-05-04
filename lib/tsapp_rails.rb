@@ -11,7 +11,7 @@ module ThriveSmart
       def AssetHelper.asset_url(asset_type, asset_urn)
         asset_path = asset_type.downcase.pluralize
         asset_ext = asset_path == 'pictures' ? 'img' : 'file'
-        path = "/#{asset_path}/#{asset_urn}.#{asset_ext}"
+        path = "/site/#{asset_path}/#{asset_urn}.#{asset_ext}"
         AssetHelper.compute_asset_host(path) + path
       end
       
