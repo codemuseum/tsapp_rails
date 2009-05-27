@@ -106,7 +106,7 @@ class TsappGenerator < Rails::Generator::NamedBase
     end
 
     def page_object_views
-      %w[ show edit ]
+      %w[ show edit new ]
     end
 
     def model_name
