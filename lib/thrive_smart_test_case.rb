@@ -1,4 +1,7 @@
-class ThriveSmart::TestCase < ActionController::TestCase
+require 'test_help'
+
+module ThriveSmart #:nodoc:
+class TestCase < ActionController::TestCase
 
   #Assertion helpers
   def assert_response_contains *args
@@ -44,4 +47,5 @@ class ThriveSmart::TestCase < ActionController::TestCase
   def compute_signature
     Digest::MD5.hexdigest([@raw_signature_string, ThriveSmart::Constants.config['secret_key']].join)
   end
+end
 end

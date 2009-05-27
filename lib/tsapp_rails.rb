@@ -1,4 +1,5 @@
 require 'active_resource_tson_format'
+require 'thrive_smart_test_case'
 
 module ThriveSmart
   module Helpers
