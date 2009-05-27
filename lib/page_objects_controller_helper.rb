@@ -87,6 +87,8 @@ module PageObjectsControllerHelper
           'edit'
         when 'create_valid'
           'new'
+        when 'duplicate_valid'
+          'new'
         when 'update'
           'edit'
         when 'create'
